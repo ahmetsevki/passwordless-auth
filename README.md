@@ -1,3 +1,9 @@
+
+# TODO
+- [ ] invalidate should also adminSignOut on cognito!!
+- [ ] post authentication should invalidate the link!
+- [ ] need "resend" link on main page!
+
 # Passwordless Auth
 
 This stack allows a user to login directly via email without any need for a pasword. This uses Cognito for authentication along with Lambda triggers. Here's the [blog post](https://dev.to/ryands17/magic-links-with-cognito-using-the-cdk-24a9) for the same.
@@ -7,8 +13,8 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 ## Prerequisites
 
 - Install dependencies using `yarn`
-- Rename `.example.env` to `.env` in `packages/backend` and replace the value in `SES_FROM_ADDRESS` to your verified email address in SES
-- Rename `.example.env` to `.env` in `packages/frontend` and replace the value in `AWS_REGION` to the region your stack is deployed to. Default is `us-east-2`
+- Rename `.example.env` to `.env` in `packages/backend` and replace the value in `SES_FROM_ADDRESS` to your verified email address in SES, replace `AWS_ACCOUNT` with the AWS Account id.
+- Rename `.example.env` to `.env` in `packages/frontend` and replace the value in `AWS_REGION` to the region your stack is deployed to. Default is `us-east-1`
 
 ## Useful commands
 

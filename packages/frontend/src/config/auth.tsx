@@ -6,7 +6,7 @@ type AC = {
   loggedIn: boolean | null
   isAuthenticated: () => Promise<boolean>
   signIn: (args: { email: string }) => Promise<any>
-  answerCustomChallenge: (email: string, answer: string) => Promise<boolean>
+  answerCustomChallenge: (params: { email: string, browserToken: string; emailSecret: string, from: string}) => Promise<boolean>,
   signOut: typeof Auth.signOut
 }
 
@@ -39,22 +39,14 @@ const AuthProvider = (props: AuthProviderProps) => {
   }, [isAuthenticated])
 
   const signIn = React.useCallback(async ({ email }: { email: string }) => {
-    try {
-      await Auth.signUp({
-        username: email,
-        password: `password${Math.random().toString().slice(0, 8)}`,
-        attributes: { email },
-      })
-    } catch (e) {
-      // skip if user already exists
-    }
-
     return requestMagicLink(email)
   }, [])
 
-  const answerCustomChallenge = async (email: string, answer: string) => {
-    let cognitoUser = await Auth.signIn(email)
-    await Auth.sendCustomChallengeAnswer(cognitoUser, answer)
+  const answerCustomChallenge = async (params: { email: string, browserToken: string; emailSecret: string; from: string}) => {
+    const {browserToken, email, emailSecret, from} = params;
+    const user = await Auth.signIn(email);
+    await Auth.sendCustomChallengeAnswer(user, 'empty', { browserToken, from });
+    await Auth.sendCustomChallengeAnswer(user, emailSecret, { from });
     setLoggedIn(true)
     return isAuthenticated()
   }

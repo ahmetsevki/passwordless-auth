@@ -1,5 +1,6 @@
 {
   "app": "npx ts-node --prefer-ts-exts bin/passwordless-login.ts",
+  "profile": "dev-admin",
   "context": {
     "@aws-cdk/core:newStyleStackSynthesis": true,
     "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,

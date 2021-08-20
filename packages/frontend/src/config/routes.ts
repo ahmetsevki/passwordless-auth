@@ -1,5 +1,6 @@
 import { PrivateRoute } from 'components/PrivateRoute'
 import { PublicRoute } from 'components/PublicRoute'
+import { PassThroughRoute } from 'components/PassThroughRoute'
 import * as React from 'react'
 import { Route } from 'react-router-dom'
 
@@ -25,10 +26,16 @@ export const routes: Record<string, RouteItem> = {
     routeComponent: PublicRoute,
     component: React.lazy(() => import('pages/SignIn/SignIn')),
   },
+  signInWait: {
+    path: '/signInWait',
+    routePath: ({email, browserToken, browserRandom}: {email: string, browserToken: string, browserRandom: string}) => `/signInWait/${email},${browserToken},${browserRandom}`,
+    routeComponent: PublicRoute,
+    component: React.lazy(() => import('pages/SignInWait/SignInWait')),
+  },
   verify: {
     path: '/verify',
     routePath: () => '/verify',
-    routeComponent: PublicRoute,
+    routeComponent: PassThroughRoute,
     component: React.lazy(
       () => import('pages/VerifyMagicLink/VerifyMagicLink')
     ),

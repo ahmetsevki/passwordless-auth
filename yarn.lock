@@ -329,6 +329,21 @@
     constructs "^3.3.69"
     punycode "^2.1.1"
 
+"@aws-cdk/aws-dynamodb@1.116.0":
+  version "1.116.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-dynamodb/-/aws-dynamodb-1.116.0.tgz#be3e4fc6d7135f5d30b151c5a82c91dddc5f132d"
+  integrity sha512-c9JFgeQH2QdGxeyP8KrE0sHJ5D8Zd93emWKHGndK9GyUjCuKz6fIBPd6GF90vaF9YqlbDh1vtcYYAaMqtNFBrQ==
+  dependencies:
+    "@aws-cdk/aws-applicationautoscaling" "1.116.0"
+    "@aws-cdk/aws-cloudwatch" "1.116.0"
+    "@aws-cdk/aws-iam" "1.116.0"
+    "@aws-cdk/aws-kinesis" "1.116.0"
+    "@aws-cdk/aws-kms" "1.116.0"
+    "@aws-cdk/aws-lambda" "1.116.0"
+    "@aws-cdk/core" "1.116.0"
+    "@aws-cdk/custom-resources" "1.116.0"
+    constructs "^3.3.69"
+
 "@aws-cdk/aws-ec2@1.116.0":
   version "1.116.0"
   resolved "https://registry.yarnpkg.com/@aws-cdk/aws-ec2/-/aws-ec2-1.116.0.tgz#076d57f41a760349de77eb6b27364bf83c8acfd6"
@@ -417,6 +432,18 @@
   dependencies:
     "@aws-cdk/core" "1.116.0"
     "@aws-cdk/region-info" "1.116.0"
+    constructs "^3.3.69"
+
+"@aws-cdk/aws-kinesis@1.116.0":
+  version "1.116.0"
+  resolved "https://registry.yarnpkg.com/@aws-cdk/aws-kinesis/-/aws-kinesis-1.116.0.tgz#5472871a727ee5bfbc5648b30490ff115fc48fb0"
+  integrity sha512-AjejXg4L4OgwdY7xHoffy3QogDWy1ajB65AA9n6TTjHhR3Fvk2d8HQ6vmoOJwZ+VI+nb6p3rTTlyKk4rG69vrA==
+  dependencies:
+    "@aws-cdk/aws-cloudwatch" "1.116.0"
+    "@aws-cdk/aws-iam" "1.116.0"
+    "@aws-cdk/aws-kms" "1.116.0"
+    "@aws-cdk/aws-logs" "1.116.0"
+    "@aws-cdk/core" "1.116.0"
     constructs "^3.3.69"
 
 "@aws-cdk/aws-kms@1.116.0":
@@ -3673,6 +3700,11 @@
   version "7.0.8"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.8.tgz#edf1bf1dbf4e04413ca8e5b17b3b7d7d54b59818"
   integrity sha512-YSBPTLTVm2e2OoQIDYx8HaeWJ5tTToLH67kXR7zYNGupXMEHa2++G8k+DczX2cFVgalypqtyZIcU19AFcmOpmg==
+
+"@types/lodash@4.14.171":
+  version "4.14.171"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.171.tgz#f01b3a5fe3499e34b622c362a46a609fdb23573b"
+  integrity sha512-7eQ2xYLLI/LsicL2nejW9Wyko3lcpN6O/z0ZLHrEQsg280zIdCv1t/0m6UtBjUHokCGBQ3gYTbHzDkZ1xOBwwg==
 
 "@types/minimatch@*":
   version "3.0.5"

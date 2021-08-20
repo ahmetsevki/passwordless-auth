@@ -2,6 +2,8 @@ import * as React from 'react'
 import { Card, Form, Input, Button, message } from 'antd'
 import { useAuth } from 'config/auth'
 import styles from './SignIn.module.css'
+import { useHistory } from 'react-router-dom'
+import { routes } from 'config/routes'
 
 const formItemLayout = {
   labelCol: {
@@ -29,20 +31,31 @@ const tailFormItemLayout = {
 
 const SignIn = () => {
   const [loading, setLoading] = React.useState(false)
+  const [redirect, setRedirect] = React.useState<string|null>(null)
   const { signIn } = useAuth()
+  const history = useHistory()
+
 
   const onSubmit = async (values: any) => {
     try {
+      console.log(`onSubmit - values`, values)
       setLoading(true)
       let response = await signIn(values)
+      console.log(`result of signin: `, response)
       message.success(response.message, 5)
+      setRedirect({...values, ...response})
     } catch (e) {
       message.error(e?.response?.data?.message || e?.message, 4)
     } finally {
       setLoading(false)
     }
   }
-
+  React.useEffect(() => {
+      if(redirect){
+        console.log(`redirecting with `, redirect)
+        history.replace(routes.signInWait.routePath(redirect))
+      }
+  });
   return (
     <div className={styles.wrapper}>
       <Card className={styles.card}>
@@ -52,6 +65,7 @@ const SignIn = () => {
           {...formItemLayout}
           onFinish={onSubmit}
           onFinishFailed={() => {
+            console.log(`onFinishFailed`)
             message.error('Please check your email', 4)
           }}
         >

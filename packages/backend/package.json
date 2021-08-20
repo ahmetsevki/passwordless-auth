@@ -10,13 +10,14 @@
     "test": "jest",
     "test:hook": "jest --onlyChanged",
     "cdk": "dotenv -- cdk",
-    "deploy": "yarn cdk deploy -O ../frontend/src/cdk-exports.json"
+    "deploy": "yarn cdk deploy --outputs-file ../frontend/src/cdk-exports.json"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.116.0",
     "@aws-cdk/assertions": "1.116.0",
     "@types/aws-lambda": "8.10.81",
     "@types/jest": "^26.0.10",
+    "@types/lodash": "4.14.171",
     "@types/node": "16.4.8",
     "aws-cdk": "1.116.0",
     "aws-sdk": "2.958.0",
@@ -33,11 +34,13 @@
   "dependencies": {
     "@aws-cdk/aws-apigateway": "1.116.0",
     "@aws-cdk/aws-cognito": "1.116.0",
+    "@aws-cdk/aws-dynamodb": "1.116.0",
     "@aws-cdk/aws-iam": "1.116.0",
     "@aws-cdk/aws-lambda-nodejs": "1.116.0",
     "@aws-cdk/aws-logs": "1.116.0",
     "@aws-cdk/core": "1.116.0",
     "crypto-secure-random-digit": "1.0.9",
+    "lodash": "^4.17.21",
     "source-map-support": "^0.5.16"
   }
 }
